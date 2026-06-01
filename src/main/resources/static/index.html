@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Painel de usuarios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="topo">
+            <div>
+                <span class="eyebrow">Cadastro de usuarios</span>
+                <h1>Painel para testar a API</h1>
+                <p>Backend do Luiz. Front basicão para cadastrar, buscar, editar e apagar usuarios.Frontend basico feito pelo nicolas.</p>
+            </div>
+
+            <div class="status-card">
+                <span class="status-label">Rota principal</span>
+                <strong>/usuario</strong>
+                <small>Banco H2 em memoria</small>
+            </div>
+        </section>
+
+        <section class="workspace">
+            <form class="panel" id="createForm">
+                <div class="panel-header">
+                    <div>
+                        <h2>Novo usuario</h2>
+                        <p>Preencha os dados e salve no banco.</p>
+                    </div>
+                    <span class="method">POST</span>
+                </div>
+
+                <label>
+                    Nome
+                    <input id="createName" name="nome" type="text" placeholder="Ex: Luiz" required>
+                </label>
+
+                <label>
+                    Email
+                    <input id="createEmail" name="email" type="email" placeholder="luiz@email.com" required>
+                </label>
+
+                <button type="submit">Cadastrar usuario</button>
+            </form>
+
+            <form class="panel" id="searchForm">
+                <div class="panel-header">
+                    <div>
+                        <h2>Buscar usuario</h2>
+                        <p>Digite o email para carregar os dados.</p>
+                    </div>
+                    <span class="method">GET</span>
+                </div>
+
+                <label>
+                    Email
+                    <input id="searchEmail" name="email" type="email" placeholder="email cadastrado" required>
+                </label>
+
+                <button type="submit">Buscar</button>
+            </form>
+
+            <form class="panel" id="updateForm">
+                <div class="panel-header">
+                    <div>
+                        <h2>Atualizar dados</h2>
+                        <p>Use o id retornado na busca.</p>
+                    </div>
+                    <span class="method">PUT</span>
+                </div>
+
+                <label>
+                    ID
+                    <input id="updateId" name="id" type="number" min="1" placeholder="1" required>
+                </label>
+
+                <div class="split">
+                    <label>
+                        Novo nome
+                        <input id="updateName" name="nome" type="text" placeholder="Opcional">
+                    </label>
+
+                    <label>
+                        Novo email
+                        <input id="updateEmail" name="email" type="email" placeholder="Opcional">
+                    </label>
+                </div>
+
+                <button type="submit">Salvar alteracoes</button>
+            </form>
+
+            <form class="panel danger-panel" id="deleteForm">
+                <div class="panel-header">
+                    <div>
+                        <h2>Remover usuario</h2>
+                        <p>Apaga o usuario pelo email cadastrado.</p>
+                    </div>
+                    <span class="method danger">DELETE</span>
+                </div>
+
+                <label>
+                    Email
+                    <input id="deleteEmail" name="email" type="email" placeholder="email cadastrado" required>
+                </label>
+
+                <button class="danger-button" type="submit">Remover</button>
+            </form>
+        </section>
+
+        <section class="result-area">
+            <div class="result-header">
+                <div>
+                    <h2>Resposta da API</h2>
+                    <p>Resultado da ultima requisicao.</p>
+                </div>
+                <button class="ghost-button" id="clearResult" type="button">Limpar</button>
+            </div>
+            <pre id="resultBox">Nenhuma requisicao feita ainda.</pre>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
