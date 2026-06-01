@@ -113,21 +113,7 @@ Exemplo de body:
 DELETE /usuario?email=luiz@email.com
 ```
 
-## Estrutura principal
 
-```text
-src/main/java/com/kageian/cadastro_usuarios
-├── business
-│   └── UsuarioService.java
-├── controller
-│   └── UsuarioController.java
-└── infrastructure
-    ├── entity
-    │   └── Usuario.java
-    └── repository
-        ├── UsuarioRepository.java
-        └── UsuarioRequest.java
-```
 
 ## Frontend
 
